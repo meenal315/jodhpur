@@ -1,0 +1,528 @@
+body {
+    color: #777;
+}
+
+/*
+Add transition to containers so they can push in and out.
+*/
+#layout,
+#menu,
+.menu-link {
+    -webkit-transition: all 0.2s ease-out;
+    -moz-transition: all 0.2s ease-out;
+    -ms-transition: all 0.2s ease-out;
+    -o-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+}
+
+/*
+This is the parent `<div>` that contains the menu and the content area.
+*/
+#layout {
+    position: relative;
+    left: 0;
+    padding-left: 0;
+}
+    #layout.active #menu {
+        left: 150px;
+        width: 150px;
+    }
+
+    #layout.active .menu-link {
+        left: 150px;
+    }
+
+/*
+The `#menu` `<div>` is the parent `<div>` that contains the `.pure-menu` that
+appears on the left side of the page.
+*/
+
+	#menu {
+    margin-left: -150px; /* "#menu" width */
+    width: 150px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 1000; /* so the menu or its navicon stays above all content */
+    background: #191818;
+    overflow-y: auto;
+	}
+    /*
+    All anchors inside the menu should be styled like this.
+    */
+    #menu a {
+        color: #999;
+        border: none;
+        padding: 0.8em 0.8em 0.8em 0.8em;
+    }
+
+    /*
+    Remove all background/borders, since we are applying them to #menu.
+    */
+    #menu .pure-menu,
+     #menu .pure-menu ul {
+        border: none;
+        background: transparent;
+        
+    }
+
+    .pure-menu-list{
+
+    	list-style:none;
+    	margin:0px;
+    	padding:0px;
+    }
+
+.pure-menu-link{
+
+	padding: .5em 1em;
+	color: #777;
+	font-family: sans-serif;
+	font-size:120%;
+	display: block;
+	text-decoration: none;
+	white-space: nowrap;
+
+}
+
+
+.activeMenu {
+	background-color:#084950;
+
+}
+    /*
+    Add that light border to separate items into groups.
+    */
+    #menu .pure-menu ul,
+    #menu .pure-menu .pure-menu-item {
+        border-top: 1px solid #333;
+        padding: 1em 1em 1em 1em;
+         background: transparent;
+    }
+        /*
+        Change color of the anchor links on hover/focus.
+        */
+        #menu .pure-menu li a:hover,
+        #menu .pure-menu li a:focus {
+            background: #333;
+            text-decoration:none;
+        }
+
+
+/*`.menu-link` represents the responsive menu toggle that shows/hides on
+small screens.
+*/
+.menu-link {
+    position: fixed;
+    display: block; /* show this only on small screens */
+    top: 0;
+    left: 0; /* "#menu width" */
+    background: #000;
+    background: rgba(0,0,0,0.7);
+    font-size: 11px; /* change this value to increase/decrease button size */
+    z-index: 10;
+    width: 4em;
+    height: 3em;
+    padding: 2em;
+}
+
+
+
+    .menu-link:hover,
+    .menu-link:focus {
+        background: #000;
+    }
+
+    .menu-link span {
+        position: relative;
+        display: block;
+        font-size:15px;
+    }
+
+    .menu-link span,
+    .menu-link span:before,
+    .menu-link span:after {
+        background-color: #fff;
+        width: 100%;
+        height: 0.2em;
+    }
+
+    .menu-link span:before,
+    .menu-link span:after {
+            position: absolute;
+            margin-top: -0.6em;
+            content: " ";
+    }
+
+    .menu-link span:after {
+    	margin-top: 0.6em;
+    }
+
+/* -- Responsive Styles (Media Queries) ------------------------------------- */
+
+/*
+Hides the menu at `48em`, but modify this based on your app's needs.
+*/
+@media (min-width: 48em) {
+
+    .header,
+    .content {
+        padding-left: 2em;
+        padding-right: 2em;
+    }
+
+    #layout {
+        padding-left: 150px; /* left col width "#menu" */
+        left: 0;
+    }
+    #menu {
+        left: 150px;
+    }
+
+    .menu-link {
+        position: fixed;
+        left: 150px;
+        display: none;
+    }
+
+    #layout.active .menu-link {
+        left: 150px;
+    }
+}
+
+@media (max-width: 48em) {
+    /* Only apply this when the window is small. Otherwise, the following
+    case results in extra padding on the left:
+        * Make the window small.
+        * Tap the menu to trigger the active state.
+        * Make the window large again.
+    */
+    #layout.active{
+        position: relative;
+        left: 150px;
+    }
+
+}
+
+
+
+/*-------------------------------------------------------------------------*/
+
+.carousel-inner > .item > img,
+            .carousel-inner > .item > a > img 
+            {
+                width: 100%;
+                margin: auto;
+                height: 60vh;
+                
+            }
+
+
+  .carousel-inner > .item > img,
+  			.carousel-inner > .item > a > img 
+  			{
+    			width: 100%;
+    			margin: auto;
+    			height: 60vh;
+    			
+  			}
+  			
+
+  /*-------------------------------------------------------------------------------------*/		
+  
+
+    /*
+The content `<div>` is where all your content goes.
+*/
+.content {
+    margin: 0 auto;
+    padding: 0 2em;
+    max-width: 800px;
+    margin-bottom: 50px;
+    line-height: 1.6em;
+    text-align: justify;
+
+    
+}
+ .content h1 {
+ 		margin: 0.2em 0;
+ 		padding: .5em .5em;
+        font-size: 4em;
+        font-family:Monotype Corsiva;
+        color:#e632d0;
+        font-weight: 300;
+        text-align: center;
+    }
+
+.content p{
+
+	font-size: 150%;
+	line-height: 1.6em;
+}
+
+.content ul{
+
+	font-size: 120%;
+	line-height: 1.6em;
+}
+
+  .content-subhead {
+    margin: 50px 0 20px 0;
+    font-weight: 400;
+    color: #888;
+}
+
+
+    div.history {
+  border: 1px solid #ccc;
+
+}
+
+div.history:hover {
+  border: 1px solid #777;
+}
+
+div.history img {
+  width: 100%;
+  height: auto;
+  
+}
+
+div.desc {
+  padding: 5px;
+  text-align: center;
+}
+
+
+
+/*----------------photo gallery------------------*/
+
+#gallery{
+  -webkit-column-count:4;
+  -moz-column-count:4;
+  column-count:4;
+  
+  -webkit-column-gap:20px;
+  -moz-column-gap:20px;
+  column-gap:20px;
+}
+@media (max-width:1200px){
+  #gallery{
+  -webkit-column-count:3;
+  -moz-column-count:3;
+  column-count:3;
+    
+  -webkit-column-gap:20px;
+  -moz-column-gap:20px;
+  column-gap:20px;
+}
+}
+@media (max-width:800px){
+  #gallery{
+  -webkit-column-count:2;
+  -moz-column-count:2;
+  column-count:2;
+    
+  -webkit-column-gap:20px;
+  -moz-column-gap:20px;
+  column-gap:20px;
+}
+}
+@media (max-width:600px){
+  #gallery{
+  -webkit-column-count:1;
+  -moz-column-count:1;
+  column-count:1;
+}  
+}
+.card{
+  width:100%;
+  height:auto;
+  margin: 4% auto;
+  box-shadow:-3px 5px 15px #000;
+  cursor: pointer;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+.modal-img{
+  width:100%;
+  height:auto;
+}
+.modal-body{
+  padding:0px;
+}
+
+
+/*--------------table--------------------*/
+
+
+
+.responsive {
+  padding: 0 6px;
+  float: left;
+  width: 24.99999%;
+}
+
+.table p{
+
+	font-size: 100%;
+}
+
+
+.table img{
+
+	display: block;
+	width: 40vw;
+	height: 40vh;
+}
+
+@media only screen and (max-width: 700px) {
+  .responsive {
+    width: 49.99999%;
+    margin: 6px 0;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .responsive {
+    width: 100%;
+  }
+}
+
+/*---------------contact form-------------------*/
+
+
+#contact-form {
+   background-color:rgb(109, 124, 230);
+   padding: 10px 20% 30px 20%;
+   max-width:100%;
+   float: center;
+   left: 50%;
+   position: relative;
+   margin-top:30px;
+   margin-left: -340px;
+   margin-bottom:30px;
+   border-radius:7px;
+   -webkit-border-radius:7px;
+   -moz-border-radius:7px;
+}
+#contact-form input,      
+#contact-form textarea,   
+#contact-form label { 
+   font-size: 15px;  
+   margin-bottom: 2px;
+   font-family: Arial, san-serif;
+} 
+#contact-form input,     
+#contact-form textarea { 
+   width:150%;
+   background: #fff;
+   border: 0; 
+   -moz-border-radius: 4px;  
+   -webkit-border-radius: 4px;  
+   border-radius: 4px;
+   margin-bottom: 25px;  
+   padding: 5px;  
+}  
+#contact-form input:focus,      
+#contact-form textarea:focus {  
+   background-color: #E5E6E7; 
+}  
+#contact-form textarea {
+   
+   height: 150px;
+}
+#contact-form button[type="submit"] {
+   cursor:pointer;
+   width:50%;
+   background:#bd3662;
+   color:#FFF;
+   margin:0 0 5px;
+   padding:10px;
+   border-radius:5px;
+}
+#contact-form button[type="submit"]:hover {
+   background-image:linear-gradient(bottom, #9C215A 0%, #A82767 52%);
+   background-image:-moz-linear-gradient(bottom, #9C215A 0%, #A82767 52%);
+   background-image:-webkit-linear-gradient(bottom, #9C215A 0%, #A82767 52%);
+   -webkit-transition:background 0.3s ease-in-out;
+   -moz-transition:background 0.3s ease-in-out;
+   transition:background-color 0.3s ease-in-out;
+}
+#contact-form button[type="submit"]:active {
+   box-shadow:inset 0 1px 3px rgba(0,0,0,0.5);
+}
+input:required, textarea:required {  
+   box-shadow: none;
+   -moz-box-shadow: none;  
+   -webkit-box-shadow: none;  
+   -o-box-shadow: none;  
+} 
+#contact-form .required {  
+   font-weight:bold;  
+   color: #E5E6E7;      
+}
+
+
+
+/* Make form look nice on smaller screens */
+@media only screen and (max-width: 580px) {
+   #contact-form{
+      left: 3%;
+      margin-right: 3%;
+      width: 88%;
+      margin-left: 3%;
+      padding-left: 3%;
+      padding-right: 3%;
+   }
+}
+@media only screen and (max-width: 580px) {
+   #contact-form textarea, #contact-form input{
+   		width:100%;
+   		}}
+
+
+
+/*----------------------------------*/
+
+
+
+
+
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+/*----------------footer------------------*/
+
+.footer {
+
+  background-color: #86b7ea;
+  padding:3px 0 5px 0;
+  text-align:center;
+
+}
+.footer h3 {
+  font-size: 75%;
+  color:#3337c3;
+  font-weight: 600;
+}
+
+.footer p {
+  font-size: 80%;
+  color:#397fc7;
+}
+.footer .social i {
+
+	font-size: 25px;
+}
+.footer .social a:hover {
+  color: #15277b;
+}
+
+/*----------------------------------*/
